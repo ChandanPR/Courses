@@ -15,6 +15,7 @@ public class BinaryHeap<Key extends Comparable<Key>> {
 	private Key[] data;
 	private int index;
 	
+	@SuppressWarnings("unchecked")
 	public BinaryHeap(int size){
 		this.data = (Key[])new Comparable[size];
 	}

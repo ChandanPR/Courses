@@ -1,6 +1,7 @@
 package datastructures;
 
 import static utils.Utilities.*;
+@SuppressWarnings("unchecked")
 public class UnorderedPriorityQueue<Key extends Comparable<Key>>{
 
 	private final Key[] data;

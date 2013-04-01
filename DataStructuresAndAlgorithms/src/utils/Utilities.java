@@ -8,6 +8,7 @@ import static utils.Trace.*;
  *  
  * @author chandanpr
  */
+@SuppressWarnings("all")
 public final class Utilities {
 	
 	private Utilities(){

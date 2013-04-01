@@ -17,15 +17,15 @@ public class CoresTest {
 		}
 
 		for (int i = 0; i < 100; i++) {
-			BufferedReader reader = new BufferedReader(new InputStreamReader(
-					new FileInputStream(new File("/Users/chandanpr/Downloads/table.csv"))));
-
-			String line = reader.readLine();
-			while (line != null) {
-				System.out.println(line);
-				line = reader.readLine();
-			}
 			
+			try(BufferedReader reader = new BufferedReader(new InputStreamReader(
+					new FileInputStream(new File("/Users/chandanpr/Downloads/table.csv"))))){
+				String line = reader.readLine();
+				while (line != null) {
+					System.out.println(line);
+					line = reader.readLine();
+				}
+			}
 		}
 		
 

@@ -5,10 +5,10 @@ import java.util.Random;
 public class ValidityRunner {
 	
 	public static void main(String[] args) {
-//		checkUnorderedPriorityQueue();
-//		checkOrderedPriorityQueue();
-//		checkBinaryHeap();
-//		checkBinarySearchTree();
+		checkUnorderedPriorityQueue();
+		checkOrderedPriorityQueue();
+		checkBinaryHeap();
+		checkBinarySearchTree();
 		checkBSTDelete();
 	}
 

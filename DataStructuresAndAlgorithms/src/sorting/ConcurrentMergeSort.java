@@ -6,6 +6,8 @@ import static utils.Utilities.less;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
 
+import utils.Trace;
+
 public class ConcurrentMergeSort implements Sorter{
 
 	private static final int MERGE_SORT_CUT_OFF = 7;
@@ -23,6 +25,7 @@ public class ConcurrentMergeSort implements Sorter{
 	}
 	
 	private class SortTask extends RecursiveAction{
+		private static final long serialVersionUID = 5232453952276485070L;
 		
 		int[] a;
 		int[] aux;
@@ -37,14 +40,16 @@ public class ConcurrentMergeSort implements Sorter{
 		@Override
 		protected void compute() {
 			if(hi <= lo+MERGE_SORT_CUT_OFF-1) {
-//				dumpDetails(lo+":"+hi+"Insertion Sort");
+				if(Trace.DEBUG)
+					dumpDetails(lo+":"+hi+"Insertion Sort");
 				InsertionSort.sort(a, lo, hi);
 				return;
 			}
 			
 			int mid = lo+(hi-lo)/2;
 			invokeAll(new SortTask(a,aux,lo,mid),new SortTask(a,aux,mid+1,hi));
-//			dumpDetails(lo+":"+hi+"Merge");
+			if(Trace.DEBUG)
+				dumpDetails(lo+":"+hi+"Merge");
 			merge(a, aux, lo, mid, hi);
 			return;
 		}

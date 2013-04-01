@@ -12,7 +12,15 @@ public class QuickSort implements Sorter {
 	@Override
 	public void sort(int[] a) {
 		shuffle(a);
-		sort3Way(a, 0, a.length - 1);
+		sort(a, false);
+	}
+	
+	public void sort(int[] a,boolean threeway) {
+		shuffle(a);
+		if(threeway)
+			sort3Way(a, 0, a.length - 1);
+		else
+			sort(a, 0, a.length-1);
 	}
 	
 	private void sort3Way(int[] a, int lo, int hi){

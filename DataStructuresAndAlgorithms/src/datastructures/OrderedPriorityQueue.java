@@ -2,7 +2,7 @@ package datastructures;
 
 import java.util.Arrays;
 
-
+@SuppressWarnings("unchecked")
 public class OrderedPriorityQueue<Key extends Comparable<Key>>{
 
 	private final Key[] data;
