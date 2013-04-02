@@ -3,6 +3,12 @@ package datastructures;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ *
+ * @param <Key>
+ * @param <Value>
+ */
 public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 	
 	private Node root;
