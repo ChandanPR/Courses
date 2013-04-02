@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 	
-	private Node root;
+	protected Node root;
 	
 	public Value get(Key key){
 		Node x = root;
@@ -28,8 +28,9 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 		root = put(root,key,value);
 	}
 	
-	private Node put(Node x, Key key, Value value){
-		if(x == null) return new Node(key,value);
+	protected Node put(Node x, Key key, Value value){
+		if(x == null)
+			return createNode(key, value);
 		
 		int compare = key.compareTo(x.key);
 		
@@ -39,12 +40,16 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 		x.count = 1+size(x.left)+size(x.right);
 		return x;
 	}
+
+	protected Node createNode(Key key, Value value) {
+		return new Node(key,value);
+	}
 	
-	private class Node{
-		private Key key;
-		private Value value;
-		private Node left, right;
-		private int count;
+	protected class Node{
+		protected Key key;
+		protected Value value;
+		protected Node left, right;
+		protected int count;
 		
 		public Node(Key key, Value value){
 			this.key = key;
@@ -115,7 +120,7 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 		return size(root);
 	}
 	
-	private int size(Node x){
+	protected int size(Node x){
 		return x == null ? 0 : x.count;
 	}
 	
