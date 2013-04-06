@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="JavaLanguage" default="compile">
-	
-	<property name="bin" value="/home/chandan/Projects/bin"/>
+	<property name="projects" value="/home/chandan/Projects"/>
+	<property name="bin" value="${projects}/bin"/>
+	<property name="lib" value="${projects}/lib"/>
 	<property name="javaLanguageBin" value="${bin}/JavaLanguage/"/>
 	<property name="javaConcurrencyBin" value="${bin}/JavaConcurrency/"/>
 	<property name="dataStructuresAndAlgorithmsBin" value="${bin}/DataStructuresAndAlgorithms/"/>
 	
+	<path refid="compileclasspath">
+		<fileset dir="${lib}" includes="*"/>
+	</path>
 	<target name="cleanAndInit">
 		<delete dir="${bin}"/>
 		<mkdir dir="${javaLanguageBin}"/>
@@ -14,9 +18,9 @@
 	</target>
 
 	<target name="compile" depends="cleanAndInit">
-		<javac srcdir="JavaLanguage/src" destdir="/home/chandan/Projects/bin/JavaLanguage/"/>
-		<javac srcdir="JavaConcurrency/src" destdir="/home/chandan/Projects/bin/JavaConcurrency/"/>
-		<javac srcdir="DataStructuresAndAlgorithms/src" destdir="/home/chandan/Projects/bin/DataStructuresAndAlgorithms/"/>
+		<javac classpathref="compileclasspath" srcdir="JavaLanguage/src" destdir="/home/chandan/Projects/bin/JavaLanguage/"/>
+		<javac classpathref="compileclasspath" srcdir="JavaConcurrency/src" destdir="/home/chandan/Projects/bin/JavaConcurrency/"/>
+		<javac classpathref="compileclasspath" srcdir="DataStructuresAndAlgorithms/src" destdir="/home/chandan/Projects/bin/DataStructuresAndAlgorithms/"/>
 	</target>
 
 </project>
