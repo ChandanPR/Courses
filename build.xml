@@ -7,9 +7,10 @@
 	<property name="javaConcurrencyBin" value="${bin}/JavaConcurrency/"/>
 	<property name="dataStructuresAndAlgorithmsBin" value="${bin}/DataStructuresAndAlgorithms/"/>
 	
-	<path refid="compileclasspath">
-		<fileset dir="${lib}" includes="*"/>
+	<path id="compileclasspath">
+		<pathelement location="${lib}"/> 
 	</path>
+	
 	<target name="cleanAndInit">
 		<delete dir="${bin}"/>
 		<mkdir dir="${javaLanguageBin}"/>
