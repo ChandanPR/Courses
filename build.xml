@@ -6,11 +6,13 @@
 	<property name="javaLanguageBin" value="${bin}/JavaLanguage/"/>
 	<property name="javaConcurrencyBin" value="${bin}/JavaConcurrency/"/>
 	<property name="dataStructuresAndAlgorithmsBin" value="${bin}/DataStructuresAndAlgorithms/"/>
-	
+
 	<path id="compileclasspath">
-		<pathelement location="${lib}"/> 
+		<fileset dir="${lib}">
+			<include name="**/*.jar" />
+		</fileset>
 	</path>
-	
+
 	<target name="cleanAndInit">
 		<delete dir="${bin}"/>
 		<mkdir dir="${javaLanguageBin}"/>
