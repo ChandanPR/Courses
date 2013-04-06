@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="JavaLanguage" default="compile">
+	
+	<property name="bin" value="/home/chandan/Projects/bin"/>
+	<property name="javaLanguageBin" value="${bin}/JavaLanguage/"/>
+	<property name="javaConcurrencyBin" value="${bin}/JavaConcurrency/"/>
+	<property name="dataStructuresAndAlgorithmsBin" value="${bin}/DataStructuresAndAlgorithms/"/>
+	
+	<target name="cleanAndInit">
+		<delete dir="${bin}"/>
+		<mkdir dir="${javaLanguageBin}"/>
+		<mkdir dir="${javaConcurrencyBin}"/>
+		<mkdir dir="${dataStructuresAndAlgorithmsBin}"/>
+	</target>
+
+	<target name="compile" depends="cleanAndInit">
+		<javac srcdir="JavaLanguage/src" destdir="/home/chandan/Projects/bin/JavaLanguage/"/>
+		<javac srcdir="JavaConcurrency/src" destdir="/home/chandan/Projects/bin/JavaConcurrency/"/>
+		<javac srcdir="DataStructuresAndAlgorithms/src" destdir="/home/chandan/Projects/bin/DataStructuresAndAlgorithms/"/>
+	</target>
+
+</project>

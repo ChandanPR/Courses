@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project name="JavaLanguage" default="compile">
-
-	<target name="compile">
-		<javac srcdir="src" destdir="/home/chandan/Projects/bin/JavaLanguage/"/>
-	</target>
-
-</project>
