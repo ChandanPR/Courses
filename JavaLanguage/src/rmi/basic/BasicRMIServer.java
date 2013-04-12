@@ -1,6 +1,5 @@
 package rmi.basic;
 
-import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -8,7 +7,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class BasicRMIServer implements BasicRMIInterface{
 
-	private static final int RMI_PORT = 9999;
+	public static final int RMI_PORT = 9999;
 
 
 	@Override
@@ -22,7 +21,7 @@ public class BasicRMIServer implements BasicRMIInterface{
 			BasicRMIServer server = new BasicRMIServer();
 			BasicRMIInterface stub = (BasicRMIInterface) UnicastRemoteObject.exportObject(server, 0);
 			Registry registry = LocateRegistry.getRegistry(RMI_PORT);
-			registry.rebind("rmi://localhost/BasicRMIInterface", stub);
+			registry.rebind("rmi://localhost:"+RMI_PORT+"/BasicRMIInterface", stub);
 			System.err.println("BasicRMIServer is running");
 		} catch (RemoteException e) {
 			e.printStackTrace();
