@@ -18,6 +18,9 @@
 		<mkdir dir="${javaLanguageBin}"/>
 		<mkdir dir="${javaConcurrencyBin}"/>
 		<mkdir dir="${dataStructuresAndAlgorithmsBin}"/>
+		<exec executable="/bin/bash/">
+			<arg value="gitpull.sh"/>
+		</exec>
 	</target>
 
 	<target name="compile" depends="cleanAndInit">
