@@ -22,11 +22,9 @@ public class BasicRMIServer implements BasicRMIInterface{
 			BasicRMIServer server = new BasicRMIServer();
 			BasicRMIInterface stub = (BasicRMIInterface) UnicastRemoteObject.exportObject(server, 0);
 			Registry registry = LocateRegistry.getRegistry(RMI_PORT);
-			registry.bind("BasicRMIInterface", stub);
+			registry.rebind("rmi://localhost/BasicRMIInterface", stub);
 			System.err.println("BasicRMIServer is running");
 		} catch (RemoteException e) {
-			e.printStackTrace();
-		} catch (AlreadyBoundException e) {
 			e.printStackTrace();
 		}
 	}
