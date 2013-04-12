@@ -21,7 +21,7 @@ public class BasicRMIServer implements BasicRMIInterface{
 			BasicRMIServer server = new BasicRMIServer();
 			BasicRMIInterface stub = (BasicRMIInterface) UnicastRemoteObject.exportObject(server, 0);
 			Registry registry = LocateRegistry.getRegistry(RMI_PORT);
-			registry.rebind("rmi://localhost:"+RMI_PORT+"/BasicRMIInterface", stub);
+			registry.rebind("rmi://10.0.0.150:"+RMI_PORT+"/BasicRMIInterface", stub);
 			System.err.println("BasicRMIServer is running");
 		} catch (RemoteException e) {
 			e.printStackTrace();
