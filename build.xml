@@ -18,7 +18,7 @@
 		<mkdir dir="${javaLanguageBin}"/>
 		<mkdir dir="${javaConcurrencyBin}"/>
 		<mkdir dir="${dataStructuresAndAlgorithmsBin}"/>
-		<exec executable="/bin/bash/">
+		<exec executable="bash/">
 			<arg value="gitpull.sh"/>
 		</exec>
 	</target>
@@ -27,6 +27,10 @@
 		<javac classpathref="compileclasspath" srcdir="JavaLanguage/src" destdir="/home/chandan/Projects/bin/JavaLanguage/"/>
 		<javac classpathref="compileclasspath" srcdir="JavaConcurrency/src" destdir="/home/chandan/Projects/bin/JavaConcurrency/"/>
 		<javac classpathref="compileclasspath" srcdir="DataStructuresAndAlgorithms/src" destdir="/home/chandan/Projects/bin/DataStructuresAndAlgorithms/"/>
+	</target>
+	
+	<target name="launchBin">
+		<exec executable="bash"> <arg value="cd /home/chandan/Projects/bin"/></exec>
 	</target>
 
 </project>
