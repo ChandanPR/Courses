@@ -19,6 +19,7 @@ public class BasicRMIServer implements BasicRMIInterface{
 	public static void main(String[] args) {
 		try {
 			BasicRMIServer server = new BasicRMIServer();
+			System.setProperty("java.rmi.server.hostname", "10.0.0.150");
 			BasicRMIInterface stub = (BasicRMIInterface) UnicastRemoteObject.exportObject(server, 0);
 			Registry registry = LocateRegistry.getRegistry(RMI_PORT);
 			registry.rebind("rmi://10.0.0.150:"+RMI_PORT+"/BasicRMIInterface", stub);

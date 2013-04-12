@@ -10,7 +10,12 @@ public class BasicRMIClient {
 	public static void main(String[] args) {
 		try {
 			Registry registry = LocateRegistry.getRegistry("10.0.0.150", RMI_PORT);
+			for(String boundName : registry.list()){
+				System.out.println(boundName);
+			}
+			System.out.println("Registry Obtained");
 			BasicRMIInterface stub = (BasicRMIInterface)registry.lookup("rmi://10.0.0.150:"+RMI_PORT+"/BasicRMIInterface");
+			System.out.println("Stub Obtained");
 			stub.welcome();
 			System.out.println(stub.getName());
 		} catch (RemoteException e) {
