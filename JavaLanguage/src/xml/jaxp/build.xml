@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="JavaLanguage" default="compile">
+	<property name="projects" value="/home/chandan/Projects"/>
+	<property name="bin" value="${projects}/bin"/>
+	<property name="lib" value="${projects}/lib"/>
+	<property name="javaLanguageBin" value="${bin}/JavaLanguage/"/>
+	<property name="javaConcurrencyBin" value="${bin}/JavaConcurrency/"/>
+	<property name="dataStructuresAndAlgorithmsBin" value="${bin}/DataStructuresAndAlgorithms/"/>
+
+	<path id="compileclasspath">
+		<fileset dir="${lib}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<target name="cleanAndInit">
+		<delete dir="${bin}"/>
+		<mkdir dir="${javaLanguageBin}"/>
+		<mkdir dir="${javaConcurrencyBin}"/>
+		<mkdir dir="${dataStructuresAndAlgorithmsBin}"/>
+		<exec executable="bash">
+			<arg value="gitpull.sh"/>
+		</exec>
+	</target>
+
+	<target name="compile" depends="cleanAndInit">
+		<javac classpathref="compileclasspath" srcdir="JavaLanguage/src" destdir="/home/chandan/Projects/bin/JavaLanguage/"/>
+		<javac classpathref="compileclasspath" srcdir="JavaConcurrency/src" destdir="/home/chandan/Projects/bin/JavaConcurrency/"/>
+		<javac classpathref="compileclasspath" srcdir="DataStructuresAndAlgorithms/src" destdir="/home/chandan/Projects/bin/DataStructuresAndAlgorithms/"/>
+	</target>
+	
+	<target name="launchBin">
+		<exec executable="bash"> <arg value="cd /home/chandan/Projects/bin"/></exec>
+	</target>
+
+</project>
