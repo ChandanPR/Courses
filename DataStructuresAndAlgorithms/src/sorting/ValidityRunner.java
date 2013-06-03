@@ -8,7 +8,8 @@ public class ValidityRunner {
 	public static void main(String[] args) {
 //		checkValidity(new MergeSort(), 10000);
 //		checkValidity(new QuickSort(), 10000);
-		checkValidity(new HeapSort(), 10000);
+//		checkValidity(new HeapSort(), 10000);
+		checkValidity(new InsertionSort(), 10000);
 	}
 	
 	

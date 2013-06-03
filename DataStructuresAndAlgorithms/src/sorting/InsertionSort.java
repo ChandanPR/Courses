@@ -11,6 +11,9 @@ public class InsertionSort implements Sorter{
 			for(int j = i; j > 0; j--){
 				if(less(a[j],a[j-1])){
 					exchange(a, j, j-1);
+				}else{
+					//Little optimization as the elements towards left is already sorted
+					break;
 				}
 			}
 		}
