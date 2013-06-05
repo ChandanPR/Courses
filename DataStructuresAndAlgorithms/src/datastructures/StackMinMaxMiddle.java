@@ -50,6 +50,10 @@ public class StackMinMaxMiddle<E extends Comparable<E>> {
 	public E pop() {
 		Node temp = top;
 		top = top.nextNode;
+		//UPDATE FOR MIN,MAX,MIDDLE
+		minData = top.minData;
+		maxData = top.maxData;
+		middleData = top.middleData;
 		size--;
 		return temp.data;
 	}

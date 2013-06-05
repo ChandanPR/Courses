@@ -1,0 +1,41 @@
+OPERATIONS ON A STACK
+
+
+
+##################### PUSH OPERATION #####################
+1. CREATE A TEMP NODE ASSIGN DATA
+2. ASSIGN TEMP-->NEXT = TOP
+3. ASSIGN TOP = TEMP
+##########################################################
+
+
+##################### POP OPERATION #####################
+1. ASSIGN TEMP = TOP
+2. ASSIGN TOP = TOP-->NEXT
+3. RETURN TEMP.DATA
+##########################################################
+
+
+##################### REVERSE OPERATION #####################
+THIS CAN BE DONE USING DOUBLE RECURSION
+POP FROM BOTTOM
+1. POP ELEMENT - e1
+2. IF STACK EMPTY RETURN e1
+3. POP FROM BOTTOM RECURSIVELY - e2
+4. PUSH TO THE STACK - e1
+5. RETURN e2
+
+REVERSE
+1. POP FROM BOTTOM - e1
+2. IF STACK IS EMPTY RETURN
+3. CALL REVERSE RECURSIVELY
+4. PUSH e1 TO THE STACK
+##########################################################
+
+
+##################### MIN AND MAX IN O(1)#####################
+SOLUTION : EACH NODE SHOULD HOLD THE DATA OF MIN AND MAX AT INSERTION
+1. MAINTAIN min AND max @ STACK
+2. MAINTAIN min AND max FOR EACH NODE - REPRESENTS THE min AND max @ INSERTION TIME
+3. UPDATE THE min AND max @ STACK DURING PUSH AND POP
+##########################################################
