@@ -2,6 +2,11 @@ package sorting;
 
 import static utils.Utilities.*;
 
+/**
+ * One more trick to avoid copying (doesn't save space) is switch the roles of aux and input array a 
+ * @author chandanpr
+ */
+
 public class MergeSort implements Sorter {
 
 	private static final int INSERTION_SORT_CUT_OFF = 7;
@@ -21,6 +26,10 @@ public class MergeSort implements Sorter {
 		int mid = lo+(hi-lo)/2;
 		sort(a,aux,lo,mid);
 		sort(a,aux,mid+1,hi);
+		//OPTIMIZATION TO AVOID MERGING
+		if(less(a[mid], a[mid+1])){
+			return;
+		}
 		merge(a, aux, lo, mid, hi);
 	}
 

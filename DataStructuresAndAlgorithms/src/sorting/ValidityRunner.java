@@ -6,10 +6,12 @@ import static utils.Utilities.show;
 public class ValidityRunner {
 	
 	public static void main(String[] args) {
-//		checkValidity(new MergeSort(), 10000);
-//		checkValidity(new QuickSort(), 10000);
-//		checkValidity(new HeapSort(), 10000);
-		checkValidity(new InsertionSort(), 10000);
+		int COUNT = 10;
+		checkValidity(new MergeSort(), COUNT);
+		checkValidity(new QuickSort(), COUNT);
+		checkValidity(new HeapSort(), COUNT);
+		checkValidity(new InsertionSort(), COUNT);
+		checkValidity(new BottomUpMergeSort(), COUNT);
 	}
 	
 	

@@ -12,7 +12,7 @@ public class QuickSort implements Sorter {
 	@Override
 	public void sort(int[] a) {
 		shuffle(a);
-		sort(a, false);
+		sort(a, true);
 	}
 	
 	public void sort(int[] a,boolean threeway) {
@@ -24,6 +24,7 @@ public class QuickSort implements Sorter {
 	}
 	
 	private void sort3Way(int[] a, int lo, int hi){
+		if(lo >= hi) return;
 		int v = a[lo];
 		int lt = lo, gt = hi;
 		int i = lo;
@@ -36,6 +37,8 @@ public class QuickSort implements Sorter {
 				i++;
 			}
 		}
+		sort3Way(a, lo, lt-1);
+		sort3Way(a, gt+1, hi);
 	}
 
 	private void sort(int[] a, int lo, int hi) {
