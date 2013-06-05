@@ -35,6 +35,15 @@ public class AllSorts {
 		show(a);
 		return a;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	private static int[] shellSort(int[] a) {
 		int n = a.length;
@@ -120,8 +129,8 @@ public class AllSorts {
 
 	private static void mergeWithoutCopy(int[] a, int[] aux, int lo, int mid,
 			int hi) {
-		assert isSorted(a, lo, mid);
-		assert isSorted(a, mid + 1, hi);
+		assert isSorted(aux, lo, mid);
+		assert isSorted(aux, mid + 1, hi);
 
 		int i = lo;
 		int j = mid + 1;
@@ -137,7 +146,7 @@ public class AllSorts {
 				aux[k] = a[i++];
 		}
 
-		assert isSorted(a, lo, hi);
+		assert isSorted(aux, lo, hi);
 	}
 
 	private static int[] quickSort(int[] a, boolean threeway) {
