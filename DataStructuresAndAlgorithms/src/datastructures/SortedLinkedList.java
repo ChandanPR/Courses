@@ -43,6 +43,7 @@ public class SortedLinkedList<E extends Comparable<E>> extends LinkedList<E> {
 			System.out.print(value + ",");
 			ints.add(value);
 		}
+		System.out.println();
 		LinkedList.testLinkedListIteration(ints);
 	}
 

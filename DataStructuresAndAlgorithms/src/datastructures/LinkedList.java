@@ -14,6 +14,11 @@ public class LinkedList<E extends Comparable<E>> implements Iterable<E> {
 	}
 
 	public boolean remove(E element) {
+		head = remove(head, element);
+		return true;
+	}
+
+	public boolean removeInLoop(E element) {
 		if (head != null && element.compareTo(head.data) == 0) {
 			head = head.nextNode;
 			return true;
@@ -27,6 +32,20 @@ public class LinkedList<E extends Comparable<E>> implements Iterable<E> {
 			current = current.nextNode;
 		}
 		return false;
+	}
+	
+	private Node remove(Node node, E element){
+		if(node == null){
+			return null;
+		}
+		if(element.compareTo(node.data) == 0){
+			Node temp = node.nextNode;
+			node.nextNode = null;
+			node = temp;
+		}else{
+			node.nextNode = remove(node.nextNode,element);
+		}
+		return node;
 	}
 
 	private Node add(Node node, E element) {
@@ -96,17 +115,17 @@ public class LinkedList<E extends Comparable<E>> implements Iterable<E> {
 
 	public E findElement(int k) {
 		Node near = findKthNodeFromLast(k);
-		return near.data;
+		return near == null ? null : near.data;
 	}
 
 	private Node findKthNodeFromLast(int k) {
-		Node near = head;
 		Node far = head;
 		while (k > 0 && far != null) {
 			far = far.nextNode;
 			k--;
 		}
-
+		//Return null if far is null as size of list < k
+		Node near = far == null ? null : head;
 		while (far != null) {
 			far = far.nextNode;
 			near = near.nextNode;
@@ -163,12 +182,9 @@ public class LinkedList<E extends Comparable<E>> implements Iterable<E> {
 	 * @return
 	 */
 	private Node attachHead() {
-		Node current = head;
-		while (current.nextNode != null) {
-			current = current.nextNode;
-		}
-		current.nextNode = head;
-		return current;
+		Node tail = getTail();
+		tail.nextNode = head;
+		return tail;
 	}
 
 	/**

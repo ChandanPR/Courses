@@ -1,0 +1,87 @@
+LINKED LIST OPERATIONS
+
+
+##################### ADD OPERATION #####################
+YOU CAN HAVE THE RECURSIVE ADD OPERATION TO PERFORM THIS
+
+MAIN ADD API
+1. ASSIGN HEAD = ADD(HEAD,ELEMENT)
+
+ADD(NODE,ELEMENT)
+1. IF NODE IS NULL CREATE A NEW NODE, ASSIGN DATA
+2. ELSE ASSIGN NODE.NEXTNODE = ADD(NODE.NEXTNODE,ELEMENT)
+3. RETURN NODE
+##########################################################
+
+
+
+##################### REMOVE OPERATION #####################
+REMOVING IN LOOP
+1. IF LIST IS EMPTY RETURN
+2. IF HEAD IS THE ELEMENT TO BE REMOVED REMOVE HEAD
+3. START FROM HEAD AS CURRENT
+	1. WHILE NEXTNODE IS NOT NULL
+	2. IF NEXT NODE IS ELEMENT - ASSIGN NEXTNODE = NEXTNODE-->NEXTNODE
+	3. ELSE CURRENT = NEXTNODE
+	
+	
+REMOVING USING RECURSION
+----------------------------------------------------------
+MAIN REMOVE API
+1. HEAD = REMOVE(HEAD,ELEMENT)
+
+REMOVE(NODE,ELEMENT)
+1. IF NODE IS NULL RETURN NULL
+2. IF NODE IS THE DATA
+	A. TAKE TEMP AS NEXT NODE
+	B. REMOVE LINK FOR NEXT NODE : NODE-->NEXTNODE = NULL
+	C. ASSIGN TEMP TO NODE : NODE = TEMP
+3. ELSE NODE.NEXTNODE = REMOVE(NODE.NEXTNODE,ELEMENT)
+4. RETURN NODE
+
+##########################################################
+
+##################### GET TAIL OPERATION #####################
+1. ASSIGN CURRENT = HEAD
+2. WHILE CURRENT.NEXT IS NOT NULL : CURRENT = CURRENT.NEXT
+3. RETURN CURRENT
+##########################################################
+
+##################### FINDING LOOP - Floyd's Cycle Detection algorithm #####################
+1. START ONESTEP AND TWOSTEP WITH HEAD
+2. RUN IN A DO WHILE LOOP
+	1. ASSIGN ONESTEP = ONESTEP-->NEXT
+	2. ASSIGN TWOSTEP = TWOSTEP-->NEXT-->NEXT.   BE CAREFUL TO CHECK FOR NULL BEFORE SECOND NEXT
+	3. IF ONE STEP OR TWO STEP IS NULL RETURN FALSE AS THERE IS NO LOOP
+	4. ONE STEP IS NOT EQUAL TO TWO STEP CONTINUE
+3. ONESTEP WAS EQUAL TO TWO STEP SO LOOP RETURN TRUE
+##########################################################
+
+##################### FINDING KTH NODE FROM LAST #####################
+1. ASSIGN HEAD FAR
+2. MOVE FAR TO THE NEXT ELEMENT K TIMES. CHECK FOR FAR TO BE NULL
+3. IF FAR IS NULL RETURN NULL ---- LINKED LIST LENGTH < K
+4. ASSIGN HEAD TO NEAR
+5. WHILE FAR IS NOT NULL ASSIGN FAR = FAR.NEXT, NEAR = NEAR.NEXT
+6. RETURN NEAR; 
+##########################################################
+
+##################### PUSH OPERATION #####################
+1. CREATE A TEMP NODE ASSIGN DATA
+2. ASSIGN TEMP-->NEXT = TOP
+3. ASSIGN TOP = TEMP
+##########################################################
+
+##################### PUSH OPERATION #####################
+1. CREATE A TEMP NODE ASSIGN DATA
+2. ASSIGN TEMP-->NEXT = TOP
+3. ASSIGN TOP = TEMP
+##########################################################
+
+##################### PUSH OPERATION #####################
+1. CREATE A TEMP NODE ASSIGN DATA
+2. ASSIGN TEMP-->NEXT = TOP
+3. ASSIGN TOP = TEMP
+##########################################################
+
+
