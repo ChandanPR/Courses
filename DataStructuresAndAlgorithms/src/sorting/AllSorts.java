@@ -35,15 +35,6 @@ public class AllSorts {
 		show(a);
 		return a;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 	private static int[] shellSort(int[] a) {
 		int n = a.length;
@@ -71,7 +62,7 @@ public class AllSorts {
 		if (copy) {
 			mergeSort(a, aux, 0, a.length - 1);
 		} else {
-//			MERGE SORT WITHOUT COPY IS NOT WORKING LOOK AT IT
+			mergeSortWithoutCopy(a, aux, 0, a.length - 1);
 		}
 		show(a);
 		return a;
@@ -114,7 +105,41 @@ public class AllSorts {
 
 		assert isSorted(a, lo, hi);
 	}
+	
+	
+	private static void mergeSortWithoutCopy(int[] a, int[] aux, int lo, int hi) {
+		if (lo >= hi)
+			return;
+		int mid = lo + (hi - lo) / 2;
+		mergeSort(aux, a, lo, mid);
+		mergeSort(aux, a, mid + 1, hi);
+		// OPTIMIZATION TO AVOID MERGING
+		if (less(aux[mid], aux[mid + 1])) {
+			return;
+		}
+		merge(aux, a, lo, mid, hi);
+	}
 
+	private static void mergeWithoutCopy(int[] a, int[] aux, int lo, int mid, int hi) {
+		assert isSorted(a, lo, mid);
+		assert isSorted(a, mid + 1, hi);
+
+		int i = lo;
+		int j = mid + 1;
+
+		for (int k = lo; k <= hi; k++) {
+			if (i > mid)
+				aux[k] = a[j++];
+			else if (j > hi)
+				aux[k] = a[i++];
+			else if (less(a[j], a[i]))
+				aux[k] = a[j++];
+			else
+				aux[k] = a[i++];
+		}
+
+		assert isSorted(a, lo, hi);
+	}
 
 	private static int[] quickSort(int[] a, boolean threeway) {
 		StandardRandom.shuffle(a);
@@ -197,7 +222,7 @@ public class AllSorts {
 		assert isSorted(insertionSort(getIntArray()));
 		assert isSorted(shellSort(getIntArray()));
 		assert isSorted(mergeSort(getIntArray(), true));
-//		assert isSorted(mergeSort(getIntArray(), false));
+		// assert isSorted(mergeSort(getIntArray(), false));
 		assert isSorted(quickSort(getIntArray(), false));
 		assert isSorted(quickSort(getIntArray(), true));
 	}
