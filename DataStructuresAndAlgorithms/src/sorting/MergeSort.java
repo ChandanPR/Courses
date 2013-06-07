@@ -43,6 +43,7 @@ public class MergeSort implements Sorter {
 		int i = lo;
 		int j = mid + 1;
 
+		//BE CAREFUL: aux WILL BE INPUT ARRAY AND a WILL BE FINAL ARRAY
 		for (int k = lo; k <= hi; k++) {
 			if (i > mid)	a[k] = aux[j++];
 			else if (j > hi)	a[k] = aux[i++];
