@@ -111,13 +111,13 @@ public class AllSorts {
 		if (lo >= hi)
 			return;
 		int mid = lo + (hi - lo) / 2;
-		mergeSort(aux, a, lo, mid);
-		mergeSort(aux, a, mid + 1, hi);
+		mergeSortWithoutCopy(aux, a, lo, mid);
+		mergeSortWithoutCopy(aux, a, mid + 1, hi);
 		// OPTIMIZATION TO AVOID MERGING
 		if (less(aux[mid], aux[mid + 1])) {
 			return;
 		}
-		merge(aux, a, lo, mid, hi);
+		mergeWithoutCopy(aux, a, lo, mid, hi);
 	}
 
 	private static void mergeWithoutCopy(int[] a, int[] aux, int lo, int mid, int hi) {
