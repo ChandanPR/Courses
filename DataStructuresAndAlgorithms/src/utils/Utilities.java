@@ -2,6 +2,7 @@ package utils;
 
 import java.util.Comparator;
 import static utils.Trace.*;
+import static utils.Utilities.show;
 
 /**
  * This is a utilities class for the algorithms and data structures
@@ -186,6 +187,20 @@ public final class Utilities {
 			copy[i] = a[i];
 		}
 		return copy;
+	}
+	
+	/**
+	 * 
+	 * @return int[]
+	 */
+	public static int[] getIntArray() {
+		int count = 10;
+		int[] a = new int[count];
+		for (int i = count - 1; i > -1; i--) {
+			a[i] = (int) (i * count * Math.random());
+		}
+		show(a);
+		return a;
 	}
 
 }

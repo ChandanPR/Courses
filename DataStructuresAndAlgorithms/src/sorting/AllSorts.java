@@ -207,15 +207,6 @@ public class AllSorts {
 		quickSortThreeWay(a, gt + 1, hi);
 	}
 
-	private static int[] getIntArray() {
-		int count = 10;
-		int[] a = new int[count];
-		for (int i = count - 1; i > -1; i--) {
-			a[i] = (int) (i * count * Math.random());
-		}
-		show(a);
-		return a;
-	}
 
 	public static void main(String[] args) {
 		assert isSorted(selectionSort(getIntArray()));
