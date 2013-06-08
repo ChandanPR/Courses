@@ -105,8 +105,7 @@ public class AllSorts {
 
 		assert isSorted(a, lo, hi);
 	}
-	
-	
+
 	private static void mergeSortWithoutCopy(int[] a, int[] aux, int lo, int hi) {
 		if (lo >= hi)
 			return;
@@ -120,7 +119,8 @@ public class AllSorts {
 		mergeWithoutCopy(aux, a, lo, mid, hi);
 	}
 
-	private static void mergeWithoutCopy(int[] a, int[] aux, int lo, int mid, int hi) {
+	private static void mergeWithoutCopy(int[] a, int[] aux, int lo, int mid,
+			int hi) {
 		assert isSorted(a, lo, mid);
 		assert isSorted(a, mid + 1, hi);
 
@@ -207,15 +207,54 @@ public class AllSorts {
 		quickSortThreeWay(a, gt + 1, hi);
 	}
 
+	private static int[] heapSort(int[] a) {
+		int N = a.length;
+
+		// BUILD MAX HEAP
+		for (int k = N / 2; k >= 1; k--) {
+			sink(a, k, N);
+		}
+
+		while (N > 1) {
+			heapSortExchange(a, 1, N--);
+			sink(a, 1, N);
+		}
+		return a;
+	}
+
+	private static void sink(int[] a, int k, int N) {
+		while (2 * k <= N) {
+			int j = 2 * k;
+			if (j < N && heapSortLess(a, j, j + 1))
+				j++;
+			if (heapSortLess(a, j, k))
+				break;
+			heapSortExchange(a, j, k);
+			k = j;
+		}
+	}
+
+	private static void heapSortExchange(int[] a, int i, int j) {
+		int temp = a[i - 1];
+		a[i - 1] = a[j - 1];
+		a[j - 1] = temp;
+	}
+
+	private static boolean heapSortLess(int[] data, int p, int q) {
+		return data[p - 1] - data[q - 1] < 0;
+	}
 
 	public static void main(String[] args) {
 		assert isSorted(selectionSort(getIntArray()));
 		assert isSorted(insertionSort(getIntArray()));
 		assert isSorted(shellSort(getIntArray()));
 		assert isSorted(mergeSort(getIntArray(), true));
+		// MERGE SORT WITHOUT COPY IS NOT WORKING.
+		// NEED TO ANALYZE
 		// assert isSorted(mergeSort(getIntArray(), false));
 		assert isSorted(quickSort(getIntArray(), false));
 		assert isSorted(quickSort(getIntArray(), true));
+		assert isSorted(heapSort(getIntArray()));
 	}
 
 }

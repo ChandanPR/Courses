@@ -1,42 +1,72 @@
 package sorting;
 
-import static utils.Utilities.exchange;
-import static utils.Utilities.less;
+import utils.Utilities;
 
+/**
+ * In a normal binary heap the index starts from 1.
+ * For Heap Sort to accomodate, array start index is assumed to be 1.
+ * Hence length will be N.
+ * The exchanges and less methods implemented locally will take care of this
+ * offset.
+ * @author chandanpr
+ */
 public class HeapSort implements Sorter{
 
 	@Override
 	public void sort(int[] a) {
-		int n = a.length-1;
-		//Build a heap order using bottom-up method
-		for(int k = n/2; k >= 0; k--){
-			sink(a, k, n);
+		int N = a.length;
+		//BUILDING THE MAX HEAP
+		for(int k=N/2; k >=1 ; k--){
+			sink(a, k, N);
 		}
 		
-		while(n > 0){
-			exchange(a, 0, n--);
-			sink(a, 0, n);
+		while(N > 1){
+			exchange(a, 1, N--);
+			sink(a, 1, N);
+		}
+	}
+	
+	private void sink(int[] a, int k, int N){
+		while(2*k <= N){
+			int j = 2*k;
+			if(j < N && less(a, j, j+1)) j++;
+			if(less(a, j, k)) break;
+			exchange(a, j, k);
+			k = j;
 		}
 		
 	}
 	
-	private void sink(int[] a, int k, int n){
-		while(2*k <= n){
-			int j = 2*k;
-			//Find which child is bigger 2k or 2k+1
-			if(j < n && less(a[j], a[j+1])){
-				j++;
-			}
-			
-			//If item at k is less than item at j sink by exchange
-			if(!less(a[k], a[j])){
-				break;
-			}
-			
-			exchange(a, k, j);
-			k = j;
-			
-		}
+	
+	/**
+	 * 
+	 * @param data
+	 * @param p
+	 * @param q
+	 * @return
+	 */
+	private boolean less(int[] data,int p, int q){
+		return data[p-1] - data[q-1] < 0;
 	}
+	
+	/**
+	 * Exchanges the elements at index i and j.
+	 * @param a
+	 * @param i
+	 * @param j
+	 */
+	private void exchange(int[] a, int i, int j){
+		int temp = a[i-1];
+		a[i-1] = a[j-1];
+		a[j-1] = temp;
+	}
+	
+	public static void main(String[] args) {
+		int[] intArray = Utilities.getIntArray();
+		new HeapSort().sort(intArray);
+		Utilities.show(intArray);
+		assert Utilities.isSorted(intArray);
+	}
+	
 
 }
