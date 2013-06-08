@@ -27,6 +27,17 @@ public final class Utilities {
 	}
 	
 	/**
+	 * 
+	 * @param data
+	 * @param p
+	 * @param q
+	 * @return
+	 */
+	public static boolean less(int[] data,int p, int q){
+		return data[p] - data[q] < 0;
+	}
+	
+	/**
 	 * Returns true if p is less than q.
 	 * @param p
 	 * @param q
