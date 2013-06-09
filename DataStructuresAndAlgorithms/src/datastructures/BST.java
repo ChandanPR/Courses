@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+/**
+ * Refer http://algs4.cs.princeton.edu/32bst/BST.java.html
+ *
+ * @param <K>
+ * @param <V>
+ */
 public class BST<K extends Comparable<K>, V> {
 
 	private Node root;
@@ -314,6 +320,35 @@ public class BST<K extends Comparable<K>, V> {
 			this.key = key;
 			this.value = value;
 		}
+
+		@Override
+		public String toString() {
+			return "Node [key=" + key + ", value=" + value + ", leftNode="
+					+ leftNode + ", rightNode=" + rightNode + ", count="
+					+ count + "]";
+		}
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		BST<Integer, Integer> ints = new BST<>();
+		for(int i=0; i<20; i++){
+//			ints.put((int)(i*Math.random()), i);
+			ints.put(i, i);
+		}
+		
+//		System.out.println(ints.traverse());
+//		ints.deleteMax();
+//		System.out.println(ints.traverse());
+//		ints.deleteMin();
+//		System.out.println(ints.traverse());
+		System.out.println(ints.isBST());
+		System.out.println(ints.check());
+		
+//		for(int i=0; i<ints.size(); i++){
+//			System.out.println(i+":"+ints.select(i));
+//		}
 	}
 
 }
