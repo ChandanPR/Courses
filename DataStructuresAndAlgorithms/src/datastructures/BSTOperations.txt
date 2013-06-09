@@ -1,0 +1,59 @@
+BST OPERATIONS:
+
+################## PUT OPERATION ##############
+1. root = put(root,K,V);
+
+put(Node x,K,V)
+1. if x is null - create a new node.
+2. if k is less than x : x.left = put(x.left,K,V)
+3. if k is greater than x : x.right = put(x.right,K,V)
+4. if k is same as x update value
+5. update the size of x
+6. return x
+
+###############################################
+
+
+################## DELETE MIN/MAX OPERATION ##############
+MIN
+1. root = deleteMin(root)
+
+deleteMin(Node x)
+1. x is null return;
+2. x.left is null return x;
+3. else deleteMin(x.left)
+
+MAX
+1. root = deleteMax(root)
+deleteMax(Node x)
+1. x is null return;
+2. x.right is null return x;
+3. else deleteMax(x.right)
+###############################################
+
+
+################## RANK AND SELECT OPERATION ##############
+rank(Node x,K key)
+1. if x is null return 0;
+2. if k is less than x - return rank(x.left,k)
+3. if k is greater than x - return 1+size(x.left)+rank(x.right,key)
+4. else return size(x);
+
+select(Node x,int rank)
+1. if x is null return null
+2. take t = size(x.left)
+3. if t > rank select(x.left,rank)
+4. if t < rank select(x.right, rank-1-t)
+5. else return x;
+###############################################
+
+
+################## FLOOR and CEIL OPERATION ##############
+floor(Node x, K key)
+1. if x is null return null
+2. if k is less than x return floor(x.left,key)
+3. else get temp = floor(x.right,key)
+4. if temp is null return temp else return x;
+###############################################
+
+
