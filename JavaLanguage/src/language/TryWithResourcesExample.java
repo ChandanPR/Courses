@@ -55,7 +55,7 @@ public class TryWithResourcesExample {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("TryWithResourcesExample.testWithinLoop() Exiting");
+		System.out.println("TryWithResourcesExample.tryOlderWay() Exiting");
 
 	}
 
