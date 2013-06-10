@@ -1,0 +1,2 @@
+In Case of Serializable Object is Constructed with out calling Constructor.
+But in case of Externalizable object is created using default constructor and then data is set.
