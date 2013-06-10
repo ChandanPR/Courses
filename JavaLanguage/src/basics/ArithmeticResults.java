@@ -56,7 +56,7 @@ public class ArithmeticResults {
 		
 		String name1 = "name1";
 		StringBuilder builder = new StringBuilder(name1);
-		System.out.println(name1.equals(builder));
+		System.out.println(name1.equals(builder.toString()));
 		
 		
 	}
