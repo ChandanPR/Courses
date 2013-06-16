@@ -1,4 +1,4 @@
-package experiments;
+package buildingblocks;
 
 import java.util.concurrent.Semaphore;
 
