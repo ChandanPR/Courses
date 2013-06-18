@@ -42,9 +42,10 @@ public class BST<E extends Comparable<E>> {
 			switch (side) {
 			case LEFT:
 				boolean isRightNodeLessThanMax = less(current.rightNode, max);
-				boolean isCurrentNodeGreaterThanMin = greater(current,min);
+				boolean isCurrentNodeGreaterThanMin = current != min && greater(current,min);
 				boolean isLeftNodeLessThanMin = less(current.leftNode, min);
 				
+				/**
 				System.out.println("___________________________________________________");
 				System.out.println("current : "+current);
 				System.out.println("current left : "+current.leftNode);
@@ -55,22 +56,25 @@ public class BST<E extends Comparable<E>> {
 				System.out.println("isCurrentNodeGreaterThanMin : "+isCurrentNodeGreaterThanMin);
 				System.out.println("isLeftNodeLessThanMin : "+isLeftNodeLessThanMin);
 				System.out.println();System.out.println();System.out.println();System.out.println();
+				*/
 				
 				if(isCurrentNodeGreaterThanMin && isLeftNodeLessThanMin){
 					return false;
 				}
 				if (isRightNodeLessThanMax && isLeftNodeLessThanMin) {
 					min = less(current, min) ? current : min;
-					return isBST(parent, current.leftNode, parent, min, LEFT);
+					return isBST(parent, current.leftNode, parent, min, LEFT) &&
+							isBST(parent, current.rightNode, parent, min, LEFT);
 				}
 				break;
 			case RIGHT:
 				
 				boolean isLeftNodeGreaterThanMin = greater(current.leftNode,
 						min);
-				boolean currentNodeLessThanMax = less(current, max);
-				boolean isRightNodeGreaterThanMax = less(max,
-						current.rightNode);
+				boolean currentNodeLessThanMax = current != max && less(current, max);
+				boolean isRightNodeGreaterThanMax = greater(current.rightNode, max);
+				
+				/**
 				System.out.println("___________________________________________________");
 				System.out.println("current : "+current);
 				System.out.println("current left : "+current.leftNode);
@@ -81,13 +85,16 @@ public class BST<E extends Comparable<E>> {
 				System.out.println("currentNodeLessThanMax : "+currentNodeLessThanMax);
 				System.out.println("isRightNodeGreaterThanMax : "+isRightNodeGreaterThanMax);
 				System.out.println();System.out.println();System.out.println();System.out.println();
+				*/
 				
 				if (currentNodeLessThanMax && isRightNodeGreaterThanMax) {
 					return false;
 				}
+				
 				if (isLeftNodeGreaterThanMin && isRightNodeGreaterThanMax) {
 					max = greater(current, max) ? current : max;
-					return isBST(parent, current.rightNode, max, parent, RIGHT);
+					return isBST(parent, current.rightNode, max, parent, RIGHT) &&
+							isBST(parent, current.leftNode, max, parent, RIGHT);
 				}
 				break;
 			default:
@@ -129,29 +136,35 @@ public class BST<E extends Comparable<E>> {
 	}
 
 	public static void main(String[] args) {
-//		BST<String> bst = new BST<>();
-//		bst.root = bst.createNode("J");
-//		bst.addNode(bst.root, "F", false);
-//		Node<String> t = bst.addNode(bst.root, "T", true);
-//		 Node<String> k = bst.addNode(t, "K", false);
-//		 Node<String> l = bst.addNode(k, "L", true);
-//		 bst.addNode(l, "W", true);
-//
-//		System.out.println(bst.isBST());
+		BST<String> bst = new BST<>();
+		bst.root = bst.createNode("J");
+		bst.addNode(bst.root, "F", false);
+		Node<String> t = bst.addNode(bst.root, "T", true);
+		 Node<String> k = bst.addNode(t, "K", false);
+		 Node<String> l = bst.addNode(k, "L", true);
+		 bst.addNode(l, "W", true);
+
+		System.out.println("bst with strings : "+bst.isBST());
 		
-		BST<Integer> bst = new BST<>();
-		bst.root = bst.createNode(100);
-		Node<Integer> node50 = bst.addNode(bst.root, 50, false);
-//		Node<Integer> node20 = bst.addNode(node50, 20, false);
-//		Node<Integer> node70 = bst.addNode(node50,70, true);
+		BST<Integer> bst1 = new BST<>();
+		bst1.root = bst1.createNode(100);
+		Node<Integer> node50 = bst1.addNode(bst1.root, 50, false);
+		Node<Integer> node20 = bst1.addNode(node50, 20, false);
+		Node<Integer> node70 = bst1.addNode(node50,70, true);
 //		Node<Integer> node10 = bst.addNode(node70,10, false);
+//		Node<Integer> node120 = bst1.addNode(node70,120, true);
 		
 		
-		Node<Integer> node150 = bst.addNode(bst.root, 150, true);
-		Node<Integer> node125 = bst.addNode(node150, 125, false);
+		Node<Integer> node150 = bst1.addNode(bst1.root, 150, true);
+		Node<Integer> node125 = bst1.addNode(node150, 125, false);
+		Node<Integer> node175 = bst1.addNode(node150, 175, true);
+//		Node<Integer> node90 = bst.addNode(node125, 90, false);
+//		Node<Integer> node200 = bst.addNode(node125, 200, true);
+//		Node<Integer> node90 = bst.addNode(node175, 90, false);
+//		Node<Integer> node200 = bst.addNode(node175, 200, true);
 		
 		
-		System.out.println(bst.isBST());
+		System.out.println("bst with ints:" +bst1.isBST());
 	}
 
 }
