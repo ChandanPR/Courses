@@ -12,7 +12,7 @@ public class SemaPhoreTests {
 		System.out.println();
 		System.out.println(in);
 		System.out.println("______________________");
-		//NON FAIR - FIFO
+		//FAIR - FIFO
 		in = new StringBuffer();
 		testSemaphore(true,in);
 		Thread.sleep(1000);
