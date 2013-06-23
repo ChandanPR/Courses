@@ -131,12 +131,96 @@ public class ArrayQuestions {
 		}
 		a[left] = v;
 	}
+	
+	private static int[] sortMiddleSequence(int[] a){
+		int N = a.length;
+		int middleStart = 0;
+		int middleEnd = 0;
+		//FIND THE MIDDLE SEQUENCE
+		for(int i=1; i<N; i++){
+			if(less(a[i], a[i-1])){
+				middleStart = i;
+				break;
+			}
+		}
+		for(int i=middleStart+1; i<N; i++){
+			if(less(a[i], a[i-1])){
+				middleEnd = i-1;
+			}
+		}
+		//EXPAND OR UPDATE THE MIDDLE SEQUENCE
+		for(int i=middleStart; i>0; i--){
+			if(less(a[i-1], a[middleStart])){
+				middleStart = i;
+				break;
+			}
+		}
+		for(int i=middleEnd+1; i<N; i++){
+			if(less(a[middleEnd], a[i])){
+				middleEnd = i-1;
+				break;
+			}
+		}
+		quickSortThreeWay(a,middleStart,middleEnd);
+		return a;
+	}
+	
+	private static void quickSortThreeWay(int[] a, int lo, int hi) {
+		if (lo >= hi)
+			return;
+		int lt = lo;
+		int gt = hi;
+		int i = lo;
+		int v = a[lo];
+		while (i <= gt) {
+			int cmp = a[i] - v;
+			if (cmp < 0)
+				exchange(a, lt++, i++);
+			else if (cmp > 0)
+				exchange(a, i, gt--);
+			else
+				i++;
+		}
+		quickSortThreeWay(a, lo, lt - 1);
+		quickSortThreeWay(a, gt + 1, hi);
+	}
+	
+	private static int findPairsMatchingSum(int[] a, int sum){
+		int count = 0;
+		quickSortThreeWay(a, 0, a.length-1);
+		assert isSorted(a);
+		int start = 0;
+		int end = a.length - 1;
+		while(start < end){
+			int cmp = a[start]+a[end] -sum;
+			if(cmp < 0) start++;
+			else if(cmp > 0) end--;
+			else {
+				count++;
+				start++;
+				end--;
+			}
+		}
+		return count;
+	}
 
 	public static void main(String[] args) {
 		testUnionAndIntersection();
 		testFIndingElementWithoutLinearSearch();
 		testSortingArrayWith2TypesofElements();
 		testSortingWhenSubSequenceAreSorted();
+		testSortingSubSequence();
+		testPairsMatchingSum();
+	}
+
+	private static void testPairsMatchingSum() {
+		assert findPairsMatchingSum(new int[]{1,1,1,1}, 2) == 2;
+		assert findPairsMatchingSum(new int[]{1,-1,1,-1}, 0) == 2;
+	}
+
+	private static void testSortingSubSequence() {
+		assert isSorted(sortMiddleSequence(new int[]{1,2,4,7,10,11,7,12,6,7,16,18,19}));
+		assert isSorted(sortMiddleSequence(new int[]{1,2,4,7,10,11,7,12,6,7,8,9,10,16,18,19}));
 	}
 
 	private static void testSortingWhenSubSequenceAreSorted() {

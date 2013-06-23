@@ -427,4 +427,12 @@ ORDER BY SID DESC
 )
 
 
+CREATE TRIGGER name
+BEFORE|AFTER|INSTEAD OF event
+[REFERENCING variables]
+[FOR EACH ROW]
+WHEN (condition)
+action
+
+
 
