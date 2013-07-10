@@ -1,0 +1,3 @@
+1. CountDownLatch is for children threads and not reusable.
+2. CyclicBarrier is for Parallel Threads and reusable.
+3. Condition is just the same as wait and notify
