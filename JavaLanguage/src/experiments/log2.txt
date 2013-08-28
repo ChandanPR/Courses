@@ -1,0 +1,274 @@
+     63    1             java.lang.String::hashCode (55 bytes)
+     76    2             sun.nio.cs.UTF_8$Encoder::encode (361 bytes)
+     78    3             experiments.StepIncOperation::map (5 bytes)
+     78    1 %           experiments.CompilerOptimizationDemo::opRun @ 5 (26 bytes)
+    111    4             java.lang.String::indexOf (70 bytes)
+    117    5             experiments.CompilerOptimizationDemo::opRun (26 bytes)
+    246    6             java.lang.String::charAt (29 bytes)
+    283    5             experiments.CompilerOptimizationDemo::opRun (26 bytes)   made not entrant
+    284    1 %           experiments.CompilerOptimizationDemo::opRun @ -2 (26 bytes)   made not entrant
+    284    2 %           experiments.CompilerOptimizationDemo::opRun @ 5 (26 bytes)
+    284    7             experiments.StepDecOperation::map (4 bytes)
+    306    8             experiments.CompilerOptimizationDemo::opRun (26 bytes)
+    783    2 %           experiments.CompilerOptimizationDemo::opRun @ -2 (26 bytes)   made not entrant
+    783    3 %           experiments.CompilerOptimizationDemo::opRun @ 5 (26 bytes)
+    784    9             experiments.IncOperation::map (4 bytes)
+    985    8             experiments.CompilerOptimizationDemo::opRun (26 bytes)   made not entrant
+   2298   10             experiments.CompilerOptimizationDemo::opRun (26 bytes)
+   2641   11             experiments.DecOperation::map (4 bytes)
+*** Run each method in turn: loop 0
+experiments.StepIncOperation
+    2,039,983,680 ops/sec
+
+    2,459,661,550 ops/sec
+
+    2,780,558,336 ops/sec
+
+    2,772,694,504 ops/sec
+
+    2,714,293,469 ops/sec
+
+    2,760,905,577 ops/sec
+
+    2,786,757,329 ops/sec
+
+    2,778,240,817 ops/sec
+
+    2,725,984,080 ops/sec
+
+    2,773,309,667 ops/sec
+
+experiments.StepDecOperation
+    2,168,162,698 ops/sec
+
+    2,739,275,735 ops/sec
+
+    978,148,169 ops/sec
+
+    858,265,959 ops/sec
+
+    811,820,100 ops/sec
+
+    783,686,776 ops/sec
+
+    770,285,467 ops/sec
+
+    981,681,817 ops/sec
+
+    987,790,904 ops/sec
+
+    910,216,267 ops/sec
+
+experiments.IncOperation
+    247,231,012 ops/sec
+
+    265,311,103 ops/sec
+
+    267,465,496 ops/sec
+
+    266,089,075 ops/sec
+
+    268,087,889 ops/sec
+
+    266,497,529 ops/sec
+
+    267,456,912 ops/sec
+
+    267,002,734 ops/sec
+
+    268,622,236 ops/sec
+
+    321,779,310 ops/sec
+
+experiments.DecOperation
+    210,144,957 ops/sec
+
+    216,458,649 ops/sec
+
+    242,672,503 ops/sec
+
+    242,887,052 ops/sec
+
+    243,414,422 ops/sec
+
+    235,708,965 ops/sec
+
+    243,972,655 ops/sec
+
+    242,250,409 ops/sec
+
+    237,693,423 ops/sec
+
+    241,832,120 ops/sec
+
+*** Run each method in turn: loop 1
+experiments.StepIncOperation
+    244,339,866 ops/sec
+
+    241,897,638 ops/sec
+
+    242,523,015 ops/sec
+
+    243,428,643 ops/sec
+
+    194,300,014 ops/sec
+
+    215,544,184 ops/sec
+
+    243,268,753 ops/sec
+
+    245,171,350 ops/sec
+
+    243,119,712 ops/sec
+
+    238,859,588 ops/sec
+
+experiments.StepDecOperation
+    241,772,482 ops/sec
+
+    244,484,431 ops/sec
+
+    242,626,578 ops/sec
+
+    245,165,339 ops/sec
+
+    236,940,996 ops/sec
+
+    243,833,451 ops/sec
+
+    209,743,860 ops/sec
+
+    243,503,331 ops/sec
+
+    241,793,527 ops/sec
+
+    242,725,516 ops/sec
+
+experiments.IncOperation
+    243,414,422 ops/sec
+
+    242,526,544 ops/sec
+
+    244,953,948 ops/sec
+
+    242,433,645 ops/sec
+
+    237,495,843 ops/sec
+
+    241,627,603 ops/sec
+
+    244,839,997 ops/sec
+
+    243,158,729 ops/sec
+
+    244,903,556 ops/sec
+
+    243,420,347 ops/sec
+
+experiments.DecOperation
+    241,438,587 ops/sec
+
+    241,407,113 ops/sec
+
+    234,182,165 ops/sec
+
+    242,190,565 ops/sec
+
+    243,720,540 ops/sec
+
+    242,859,918 ops/sec
+
+    242,192,911 ops/sec
+
+    239,219,570 ops/sec
+
+    244,461,719 ops/sec
+
+    238,010,234 ops/sec
+
+*** Run each method in turn: loop 2
+experiments.StepIncOperation
+    239,059,444 ops/sec
+
+    243,663,529 ops/sec
+
+    245,378,299 ops/sec
+
+    243,900,059 ops/sec
+
+    241,166,086 ops/sec
+
+    242,917,733 ops/sec
+
+    245,433,705 ops/sec
+
+    243,094,889 ops/sec
+
+    242,798,593 ops/sec
+
+    241,308,082 ops/sec
+
+experiments.StepDecOperation
+    244,232,450 ops/sec
+
+    241,209,133 ops/sec
+
+    239,416,589 ops/sec
+
+    237,188,275 ops/sec
+
+    224,998,200 ops/sec
+
+    240,079,898 ops/sec
+
+    241,067,252 ops/sec
+
+    243,896,490 ops/sec
+
+    240,541,892 ops/sec
+
+    240,184,846 ops/sec
+
+experiments.IncOperation
+    241,426,929 ops/sec
+
+    243,070,072 ops/sec
+
+    225,782,562 ops/sec
+
+    235,602,340 ops/sec
+
+    242,995,650 ops/sec
+
+    243,600,611 ops/sec
+
+    244,095,333 ops/sec
+
+    239,279,099 ops/sec
+
+    241,064,928 ops/sec
+
+    242,631,287 ops/sec
+
+experiments.DecOperation
+    237,087,053 ops/sec
+
+    239,147,487 ops/sec
+
+    242,963,769 ops/sec
+
+    243,324,395 ops/sec
+
+    236,389,854 ops/sec
+
+    239,510,631 ops/sec
+
+    244,776,470 ops/sec
+
+    241,599,582 ops/sec
+
+    244,793,247 ops/sec
+
+    243,733,608 ops/sec
+
+value = 657
