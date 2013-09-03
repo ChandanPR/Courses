@@ -1,0 +1,3 @@
+
+Command to Search for text in a directory
+find . -name '*.*' -exec grep 'ToolTip' {} /dev/null \;

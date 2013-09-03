@@ -1,0 +1,3 @@
+exclude java/lang/String hashcode 
+#dontinline compilationflags/Operation increment
+#exclude compilationflags/Operation increment
